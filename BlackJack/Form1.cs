@@ -12,6 +12,7 @@ namespace BlackJack
 {
     public partial class Form1 : Form
     {
+        int Tab = 0;
         List<Card> deck = new List<Card>()
         {
             #region spades
@@ -110,21 +111,6 @@ namespace BlackJack
             {
                 playercardSum += playercardList[i].Value;
             }
-
-            if (playercardSum > 21)
-            {
-                foreach (Card c in playercardList)
-                {
-                    if (c.Value == 11)
-                    {
-                        playercardSum -= 10;
-                        if (playercardSum <= 21)
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
         }
         private void sumBankerCards()
         {
@@ -133,35 +119,22 @@ namespace BlackJack
             {
                 bankercardSum += bankercardList[i].Value;
             }
-            if (bankercardSum > 21)
-            {
-                foreach (Card c in bankercardList)
-                {
-                    if (c.Value == 11)
-                    {
-                        bankercardSum -= 10;
-                        if (bankercardSum <= 21)
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
         }
         private void resetGame()
         {
+            Tab = 0;
             resultLabel.Text = null;
             displayCardBack(pictureBox1);
             displayCardBack(pictureBox2);
             displayCardBack(pictureBox4);
             foreach (PictureBox pb in playerbox)
             {
-                this.Controls.Remove(pb);
+                this.Controls.Remove(pb); //Посмотрел в интернете
             }
             playerbox = new List<PictureBox>();
             foreach (PictureBox pb in bankerbox)
             {
-                this.Controls.Remove(pb);
+                this.Controls.Remove(pb); //Посмотрел в интернете
             }
             bankerbox = new List<PictureBox>();
             playercardSum = 0;
@@ -169,7 +142,7 @@ namespace BlackJack
             playercardList.Clear();
             bankercardList.Clear();
             usedCards.Clear();
-            resultLabel.Text = "Player choice";
+            resultLabel.Text = "Press Start";
         }
         private void displayCardBack(PictureBox picturebox)
         {
@@ -179,15 +152,14 @@ namespace BlackJack
         private void pnlTable_Paint(object sender, PaintEventArgs e)
         {
 
-        }
+        } //Миссклик на старую панель
         private void startButton_Click_1(object sender, EventArgs e)
         {
+            resultLabel.Text = null;
             if (playercardSum > 0)
             {
-                resultLabel.Text = String.Format
-                ("Already started");
+                resultLabel.Text = String.Format("Already started");
             }
-
             else
             {
                 playercardSum = 0;
@@ -234,9 +206,7 @@ namespace BlackJack
                 sumPlayerCards();
                 if (playercardSum == 21)
                 {
-                    resultLabel.Text = String.Format("The sum of your cards is {0}", playercardSum);
-                    MessageBox.Show("You win!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    resetGame();
+                    resultLabel.Text = String.Format("The sum of your cards is {0}, You win!", playercardSum);
                 }
             }
         }
@@ -252,13 +222,14 @@ namespace BlackJack
             }
             else
             {
-                if (playercardSum > 40)
+                if (playercardSum > 33)
                 {
                     resetGame();
                     resultLabel.Text = "Restarting";
                 }
                 else
                 {
+                    Tab += 90;
                     playercardSum = 0;
                     int randomCard = selectRandomCard();
                     Card card = deck[randomCard];
@@ -268,7 +239,7 @@ namespace BlackJack
                     PictureBox p3 = new PictureBox();
                     p3.Width = 71;
                     p3.Height = 96;
-                    p3.Location = new Point(pictureBox2.Left + 90, 269);
+                    p3.Location = new Point(pictureBox2.Left + Tab, 285);
                     p3.ImageLocation = card.Image;
                     p3.SizeMode = PictureBoxSizeMode.AutoSize;
                     this.Controls.Add(p3);
@@ -277,22 +248,18 @@ namespace BlackJack
                     sumPlayerCards();
                     if (playercardSum > 21)
                     {
-                        resultLabel.Text = String.Format("The sum of your cards is {0}", playercardSum);
-                        MessageBox.Show("You lose!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        resetGame();
+                        resultLabel.Text = String.Format("The sum of your cards is {0}, You lose!", playercardSum);        
                     }
                     else if (playercardSum == 21)
                     {
-                        resultLabel.Text = String.Format
-                            ("The sum of your cards is: {0}, you win!", playercardSum);
-                        MessageBox.Show("You win!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        resetGame();
+                        resultLabel.Text = String.Format("The sum of your cards is: {0}, You win!", playercardSum);
                     }
                 }
             }
         }
         private void stopButton_Click(object sender, EventArgs e)
         {
+            Tab = 0;
             if (playercardSum == 0)
             {
                 resultLabel.Text = "Press Start";
@@ -301,6 +268,7 @@ namespace BlackJack
             sumBankerCards();
             while (bankercardSum <= 16)
             {
+                Tab += 90;
                 int randomCard = selectRandomCard();
                 Card card = deck[randomCard];
                 usedCards.Add(randomCard);
@@ -309,7 +277,7 @@ namespace BlackJack
                 PictureBox p4 = new PictureBox();
                 p4.Width = 71;
                 p4.Height = 96;
-                p4.Location = new Point(154 + bankerbox.Count * 77, 12);
+                p4.Location = new Point(pictureBox4.Left + Tab, 12);
                 p4.ImageLocation = card.Image;
                 p4.SizeMode = PictureBoxSizeMode.AutoSize;
                 this.Controls.Add(p4);
@@ -319,37 +287,28 @@ namespace BlackJack
             }
             if (bankercardSum > 21)
             {
-                resultLabel.Text = String.Format("The sum of banker cards is {0}", bankercardSum);
-                MessageBox.Show("You win!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                resetGame();
+                resultLabel.Text = String.Format("The sum of banker cards is {0}, You win!", bankercardSum);
             }
             else if (playercardSum <= bankercardSum)
             {
-                resultLabel.Text = String.Format("The sum of your cards is {0}", playercardSum);
-                MessageBox.Show("You lose!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                resetGame();
+                resultLabel.Text = String.Format("The sum of your cards is {0}, You lose!", playercardSum);
             }
             else
             {
-                resultLabel.Text = String.Format("The sum of your cards is {0}", playercardSum);
-                MessageBox.Show("You win!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                resetGame();
+                resultLabel.Text = String.Format("The sum of your cards is {0}, You win!", playercardSum);
             }
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
-        }
-
+        }//Миссклик
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-        }
-
+        }//Миссклик
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
+        }//Миссклик
     } 
 }
