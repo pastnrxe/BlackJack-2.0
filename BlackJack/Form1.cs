@@ -113,15 +113,18 @@ namespace BlackJack
                 playercardSum += playercardList[i].Value;
                 if (playercardList[i].Name.StartsWith("Ace")) AceExist = true;
             }
-            if (playercardSum > 21 && AceExist) playercardSum -= 10;
+            if (playercardSum > 20 && AceExist) playercardSum -= 10;
         }
         private void sumBankerCards()
         {
             bankercardSum = 0;
+            bool AceExist = false;
             for (int i = 0; i < bankercardList.Count; i++)
             {
                 bankercardSum += bankercardList[i].Value;
+                if (bankercardList[i].Name.StartsWith("Ace")) AceExist = true;
             }
+            if (bankercardSum > 20 && AceExist) bankercardSum -= 10;
         }
 
         private int GetValue(List<Card> cardList)
