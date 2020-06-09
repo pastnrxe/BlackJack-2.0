@@ -49,18 +49,20 @@
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(13, 67);
+            this.label2.Location = new System.Drawing.Point(17, 82);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 26);
+            this.label2.Size = new System.Drawing.Size(93, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Banker";
             // 
             // startButton
             // 
             this.startButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startButton.Location = new System.Drawing.Point(12, 12);
+            this.startButton.Location = new System.Drawing.Point(16, 15);
+            this.startButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(75, 23);
+            this.startButton.Size = new System.Drawing.Size(100, 28);
             this.startButton.TabIndex = 5;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -69,9 +71,10 @@
             // dealButton
             // 
             this.dealButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dealButton.Location = new System.Drawing.Point(12, 327);
+            this.dealButton.Location = new System.Drawing.Point(16, 402);
+            this.dealButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dealButton.Name = "dealButton";
-            this.dealButton.Size = new System.Drawing.Size(75, 23);
+            this.dealButton.Size = new System.Drawing.Size(100, 28);
             this.dealButton.TabIndex = 6;
             this.dealButton.Text = "Deal";
             this.dealButton.UseVisualStyleBackColor = true;
@@ -80,9 +83,10 @@
             // stopButton
             // 
             this.stopButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stopButton.Location = new System.Drawing.Point(12, 356);
+            this.stopButton.Location = new System.Drawing.Point(16, 438);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(75, 23);
+            this.stopButton.Size = new System.Drawing.Size(100, 28);
             this.stopButton.TabIndex = 7;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
@@ -91,9 +95,10 @@
             // resetButton
             // 
             this.resetButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resetButton.Location = new System.Drawing.Point(12, 41);
+            this.resetButton.Location = new System.Drawing.Point(16, 50);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.Size = new System.Drawing.Size(100, 28);
             this.resetButton.TabIndex = 8;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
@@ -105,9 +110,10 @@
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(13, 298);
+            this.label1.Location = new System.Drawing.Point(17, 367);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 26);
+            this.label1.Size = new System.Drawing.Size(92, 33);
             this.label1.TabIndex = 9;
             this.label1.Text = "Player ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,26 +121,29 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(107, 12);
+            this.pictureBox4.Location = new System.Drawing.Point(143, 15);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(80, 110);
+            this.pictureBox4.Size = new System.Drawing.Size(107, 135);
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(107, 285);
+            this.pictureBox1.Location = new System.Drawing.Point(143, 351);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 110);
+            this.pictureBox1.Size = new System.Drawing.Size(107, 135);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(197, 285);
+            this.pictureBox2.Location = new System.Drawing.Point(263, 351);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(80, 110);
+            this.pictureBox2.Size = new System.Drawing.Size(107, 135);
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -143,18 +152,19 @@
             // 
             this.resultLabel.AutoSize = true;
             this.resultLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resultLabel.Location = new System.Drawing.Point(40, 181);
+            this.resultLabel.Location = new System.Drawing.Point(53, 223);
+            this.resultLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(18, 26);
+            this.resultLabel.Size = new System.Drawing.Size(23, 33);
             this.resultLabel.TabIndex = 13;
             this.resultLabel.Text = "-";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(503, 391);
+            this.ClientSize = new System.Drawing.Size(679, 514);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.pictureBox4);
@@ -165,6 +175,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dealButton);
             this.Controls.Add(this.stopButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
